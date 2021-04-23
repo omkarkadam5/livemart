@@ -61,6 +61,10 @@
   text-transform: uppercase;
 
 }
+.okar10{
+  visibility: hidden;
+
+}
 #noty_layout__top {
   top: 0;
   left: 5%;

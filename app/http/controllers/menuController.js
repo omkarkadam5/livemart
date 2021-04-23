@@ -15,7 +15,8 @@ function menuController(){
                         lat:1,
                         lon:1,
                         dis:1,
-                        seller:1
+                        seller:1,
+                        quantity:1
                 });
                 for (var i in data) {
                     data[i].dis=data[i].lat-data[i].lon;

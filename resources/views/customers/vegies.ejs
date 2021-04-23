@@ -36,6 +36,14 @@
                         <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                             <span class="ml-4">Out of Stock</span>
                         </button>
+                        <p id="currentDate">
+                            
+                        </p>
+                        <script>
+                            var today = new Date();
+                            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()+2);
+                            document.getElementById("currentDate").innerHTML = "Next Available On: "+date;
+                          </script>
                     <%}%>
                 </div>
             </div>

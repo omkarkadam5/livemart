@@ -111,7 +111,7 @@ eventEmitter.on('orderUpdated', (data) => {
 eventEmitter.on('orderPlaced', (data) => {
     io.to('adminRoom').emit('orderPlaced', data)
 })
-
+mongoose.set('useFindAndModify', false);
 eventEmitter.on('orderPlaceds', (data) => {
     io.to('wholesalerRoom').emit('orderPlaceds', data)
 })

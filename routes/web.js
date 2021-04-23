@@ -15,11 +15,16 @@ const admin = require('../app/http/middlewares/admin')
 const wholesaler = require('../app/http/middlewares/wholesaler')
 const user = require('../app/models/user')
 const Menu = require('../app/models/menu')
-
+const bodyParser=require('body-parser')
 function initRoutes(app) {
+    app.use(bodyParser.json())
+    app.use(bodyParser.urlencoded({ extended: true }))
     app.get('/', homeController().index)
     app.get('/login', guest, authController().login)
-    app.post('/login', authController().postLogin)
+    app.post('/verify', authController().login, authController().postVerify)
+    //app.post('/verify', authController().postVerify)
+    app.post('/check', authController().postCheck)
+    //app.post('/login', authController().postLogin)
     app.get('/register', guest, authController().register)
     app.post('/register', authController().postRegister)
     app.post('/logout', authController().logout)
@@ -110,12 +115,15 @@ function initRoutes(app) {
   app.post('/wsell',(req,res)=>{
       console.log(req)
       const menu=new Menu({
-          name: req.body.itemname,
-          category: req.body.category,
-          lat: req.session.cord.lat,
-          lon: req.session.cord.lon,
-          price: req.body.price,
-          quantity: req.body.quantity
+        name: req.body.itemname,
+        category: req.body.category,
+        lat: req.session.cord.lat,
+        lon: req.session.cord.lon,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        seller: req.user.email,
+        type: req.user.role,
+        image: req.body.image
       }).save().then(res.render('wholesaler/wsellform'))
   })
   app.get('/offlinecustomer',(req,res)=>{

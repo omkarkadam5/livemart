@@ -5,22 +5,22 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 function configurePassport(){
     return{
         init(passport) {
-            passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
+            passport.use(new LocalStrategy({ usernameField: 'number',passwordField: 'password' }, async (number,password,done) => {
                 // Login
                 // check if email exists
-                const user = await User.findOne({ email: email })
+                const user = await User.findOne({ number: number })
+                console.log(number)
+                console.log("aaye")
                 if(!user) {
-                    return done(null, false, { message: 'No user with this email' })
+                    console.log("buddy")
+                    return done(null, false, { message: 'No user with this number' })
                 }
-        
-                bcrypt.compare(password, user.password).then(match => {
-                    if(match) {
-                        return done(null, user, { message: 'Logged in succesfully' })
-                    }
-                    return done(null, false, { message: 'Wrong username or password' })
-                }).catch(err => {
-                    return done(null, false, { message: 'Something went wrong' })
-                })
+                else
+                {
+                    console.log("papa")
+                    return done(null, user, { message: 'Logged in succesfully' })
+                }
+               
             }))
         
             passport.serializeUser((user, done) => {
