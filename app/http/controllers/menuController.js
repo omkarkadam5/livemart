@@ -37,6 +37,11 @@ function menuController(){
               data.sort((a, b) => (a.dis > b.dis) ? 1 : -1)
             console.log(data)
             return res.render('customers/vegies',{items:data})
+    },
+    async update(req,res){
+        console.log(req.user)
+        const data=await Menu.find({seller: req.user.email});
+        return res.render('update',{items:data})
     }
     }
 }

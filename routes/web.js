@@ -33,6 +33,11 @@ function initRoutes(app) {
     app.post('/update-cart', cartController().update)
     app.get('/items',menuController().vegies)
     app.post('/shops',menuController().vegies1)
+    app.get('/update',menuController().update)
+    app.get('/feedback',(req,res)=>{
+      res.render('feedback');
+    }
+      )
     // Customer routes
     app.post('/orders', auth, orderController().store)
     app.get('/customer/orders', auth, orderController().index)
@@ -44,6 +49,9 @@ function initRoutes(app) {
             lat: req.body.lat,
             lon: req.body.lon
         })
+    })
+    app.get('/offers',(req,res)=>{
+      res.render('scratchcard')
     })
     // Admin routes
     app.get('/admin/orders', admin, adminOrderController().index)
@@ -106,6 +114,25 @@ function initRoutes(app) {
     app.get('/buy',admin,(req,res)=>{
       res.render('admin/sellform')
   })
+    app.get('/updateform',(req,res)=>{
+      res.render('updateform',{item:req.data})
+    })
+    app.post('/updateform',async (req,res)=>{
+      console.log(req.body)
+       await Menu.findOneAndUpdate(
+          { _id : req.body.id },
+          { $set: { quantity : req.body.quantity ,price: req.body.price}},
+         {upsert: true}
+        );
+        res.redirect('/update')
+    })
+    app.post('/delete',async (req,res)=>{
+      console.log(req.body)
+       await Menu.deleteOne(
+          { _id : req.body.id }
+        );
+        res.redirect('/update')
+    })
     //wholsealer routes
     app.get('/wholesaler/orders', wholesaler, wholesalerOrderController().index)
     app.post('/wholesaler/order/status', wholesaler, wstatusController().update)
@@ -167,5 +194,3 @@ function initRoutes(app) {
 }
 
 module.exports = initRoutes
-
-

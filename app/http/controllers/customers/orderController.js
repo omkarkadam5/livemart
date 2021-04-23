@@ -21,7 +21,7 @@ function orderController () {
                 seller: req.session.cart.seller
             })
             let pp=req.session.cart.items;
-             async  function changeValue(value) {
+            async  function changeValue(value) {
                 console.log(value);
                 return await Menu.findOneAndUpdate(
                        { _id : value.item._id },
