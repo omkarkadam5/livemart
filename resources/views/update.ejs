@@ -1,6 +1,6 @@
 <section class="menu container mx-auto py-8">
 <h1 class="text-xl font-bold mb-8" >
-    <div class="okar9">  <%=  items.length == 0 ?"No Product Available" :items[0].category %>
+    <div class="okar9"> ITEMS YOU ARE SELLING
     </div>
 </h1>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16">
@@ -19,7 +19,7 @@
                         </label>
                       </div>
                       <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"  id="price"  type="text"  name="price" placeholder=<%= item.price%>>
+                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"  id="price"  type="text"  name="price"  value=<%= item.price%>>
                       </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -29,12 +29,12 @@
                         </label>
                       </div>
                       <div class="md:w-2/3">
-                        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="quantity" type="text" name="quantity" placeholder=<%= item.quantity%>>
+                        <input  class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"  id="quantity" type="text"  name="quantity"  value=<%= item.quantity%>   >
                       </div>
                     </div>
                     <input  class="vaibhav " name="id" value=<%= item._id %>>
                     <span>
-                        <button  class=" vaibhav1 add-to-cart py-1 px-6 rounded-full flex items-center font-bold " type="submit" formaction="/updateform" data-item=<% JSON.stringify(item)%> >
+                        <button  class=" vaibhav1 add-to-cart py-1 px-6 rounded-full flex items-center font-bold " type="submit"  formaction="/updateform" data-item=<% JSON.stringify(item)%> >
                             <span class="ml-4">Update</span>
                         </button>
                         <button  class=" vaibhav1 add-to-cart py-1 px-6 rounded-full flex items-center font-bold " type="submit" formaction="/delete" data-item=<% JSON.stringify(item)%> >
@@ -42,16 +42,6 @@
                         </button>
                     </span>
                   </form>
-                <!-- <% if(item.quantity>0){%>
-                <button type="submit" data-item=<% JSON.stringify(item)%>>
-                    class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                    <span class="ml-4">Update</span>
-                </button>
-                <%}else{%>
-                    <button class=" py-1 px-6 rounded-full flex items-center font-bold">
-                        <span class="ml-4">Out of Stock</span>
-                    </button>
-                <%}%> -->
             </div>
         </div>
     </div>

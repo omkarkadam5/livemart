@@ -12,13 +12,13 @@
                         </label>
                         <input name="name" value="<%= messages.name  %>"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="username" type="text" placeholder="Enter your name">
+                            id="username" type="text" placeholder="Enter your name" required="required">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             Email
                         </label>
-                        <input name="email" value="<%= messages.email  %>"
+                        <input name="email" value="<%= messages.email  %>" required="required"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="email" type="email" placeholder="Enter your email">
                     </div>
@@ -26,7 +26,7 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                             Password
                         </label>
-                        <input name="password"
+                        <input name="password" required="required"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                             id="password" type="password" placeholder="******************">
                     </div>
@@ -44,7 +44,7 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             Phone Number
                         </label>
-                        <input name="number" 
+                        <input name="number" required="required"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                              type="number" id="number" placeholder="91XXXXXXXXXX">
                     </div>

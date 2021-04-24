@@ -27645,13 +27645,22 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
-
+// var feedbackbutton = document.querySelector('.submitfeedback');
+// feedbackbutton.addEventListener('submit', function (e) {
+//     new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
+//         type: 'success',
+//         timeout: 1000,
+//         text: 'Feedback Submitted',
+//         progressBar: false
+//         }).show();
+// });
 
 
 
 var addToCart = document.querySelectorAll('.add-to-cart');
 var cartCounter = document.querySelector('#cartCounter');
+
+var sellformsubmit = document.querySelector('.sellformsubmitted');
 
 function updateCart(pizza) {
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/update-cart', pizza).then(function (res) {
@@ -27688,6 +27697,15 @@ addToCart.forEach(function (btn) {
     updateCart(pizza);
   });
 }); // Remove alert message after X seconds
+// sellformsubmit.addEventListener('submit', function (e) {
+//     new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
+//         type: 'success',
+//         timeout: 1000,
+//         text: 'Item Added',
+//         progressBar: false
+//         }).show();
+// });
+
 
 var alertMsg = document.querySelector('#success-alert');
 

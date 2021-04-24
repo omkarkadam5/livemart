@@ -41,12 +41,15 @@
 
 
 <section class="login flex justify-center pt-24">
-    <div class="w-full max-w-xs">
+    <div class="w-full max-w-xs" >
         <form action="/verify" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <input name="number" type="tel">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                Phone Number
+            </label>
+            <input name="number" required="required" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  placeholder="91XXXXXXXXXX" type="tel">
             <input name="password" type="text" class="okar10" value="ok">
             <div class="mb-6">
-                <input type="radio"  name="location" value="Set Location" onclick="getLocation()" required="required">
+                <input type="checkbox"  name="location" value="Set Location" onclick="getLocation()" required="required">
                 <label for="location">Set Location</label>
                 <p id="demo"></p>
 
@@ -75,7 +78,7 @@
                     }
                 </script>
             </div>
-            <button>Get code</button>
+            <button class=" okar12 btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Get code</button>
         </form>
     </div>
 </section>
